@@ -1,0 +1,77 @@
+<html>
+
+<head>
+	<title>First Containerized App</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<h1>This is our first containerized app using docker</h1>
+	<br>
+	<img src="images/docker.png" width="200" height="150">
+	
+	<div class = abc>
+
+<form id="myForm">
+<h2 class = hed>Weight Converter</h2>
+<p class="ppp">Welcome to online Weight Converter</p>
+
+<p>
+  <label>Kilograms</label>
+  <input id="inputKilograms" name="config" type="number" value = "" placeholder="Kilograms"> 
+  <input type="button" value="Convert" onclick="weightConverter(document.getElementById('inputKilograms').value)" >
+</p>
+
+<br>
+
+<p>
+  <label>Pounds</label>
+  <input id="outputPounds" value = "">
+</p>
+
+<p>
+  <label>Grams</label>
+  <input id="outputGrams" value = "">
+</p>
+
+<p>
+  <label>Milli Grams</label>
+  <input id="outputMilli" value = "">
+</p>
+
+<p>
+  <label>US Ton</label>
+  <input id="outputUs" value = "">
+</p>
+
+<p>
+  <label>Ounce</label>
+  <input id="outputOunce" value = "">
+<br>
+<br>
+<input id ="btn" type="button" onclick="myFunction()" value="Reset">
+</p>
+</form>
+</div>
+
+<script>
+
+function weightConverter(valNum) {
+document.getElementById("outputPounds").value=valNum*2.2046;
+document.getElementById("outputGrams").value=valNum*1000;
+document.getElementById("outputMilli").value=valNum*1000000;
+document.getElementById("outputUs").value=valNum*0.0011023;
+document.getElementById("outputOunce").value=valNum*35.274;
+}
+
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+
+
+</script>
+
+</body>
+
+</html>
+
