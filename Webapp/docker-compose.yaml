@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  web-frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/var/www/html
+    ports:
+      - 5000:80
+      
+  backend-db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+    - ./backend:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: Mobiles
+      MYSQL_ROOT_PASSWORD: root
+      
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 5001:80
+    environment:
+      - PMA_ARBITRARY=1
